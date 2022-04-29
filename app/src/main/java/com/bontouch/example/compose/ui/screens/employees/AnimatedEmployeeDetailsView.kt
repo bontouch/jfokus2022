@@ -1,5 +1,6 @@
 package com.bontouch.example.compose.ui.screens.employees
 
+import androidx.annotation.DrawableRes
 import androidx.compose.animation.core.animateRectAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
@@ -7,11 +8,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalDensity
 import com.bontouch.example.compose.config.SettingsRepository
 import com.bontouch.example.compose.ui.util.asBoundsModifier
+import org.threeten.bp.LocalDate
 
 @Composable
 fun AnimatedEmployeeDetailsView(
-    employeeItem: ListItem.Employee,
-    onNotesChanged: (String) -> Unit,
+    name: String,
+    role: String,
+    @DrawableRes photoResource: Int,
+    employmentDate: LocalDate,
+    notes: String,
+    onNotesTyped: (String) -> Unit,
     employeeDetailsAnimationState: EmployeeDetailsAnimationState,
     onEmployeeAnimationStateChangeRequest: (EmployeeDetailsAnimationState) -> Unit
 ) {
@@ -24,8 +30,12 @@ fun AnimatedEmployeeDetailsView(
 
     EmployeeDetailsView(
         modifier = animatingBoundsModifier,
-        employeeItem = employeeItem,
-        onNotesChanged = onNotesChanged
+        name = name,
+        role = role,
+        photoResource = photoResource,
+        employmentDate = employmentDate,
+        notes = notes,
+        onNotesTyped = onNotesTyped
     )
 
     employeeDetailsAnimationState.next(animatingRect)?.let {

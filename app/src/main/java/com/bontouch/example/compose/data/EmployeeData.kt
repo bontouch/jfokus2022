@@ -1,4 +1,4 @@
-package com.bontouch.example.compose.repository
+package com.bontouch.example.compose.data
 
 import com.bontouch.example.compose.R
 import com.bontouch.example.compose.domain.Employee
@@ -28,7 +28,7 @@ object EmployeeData {
                         role = Role.IosDeveloper,
                         notes = "Likes Swift",
                         startDate = LocalDate.parse("2021-01-18"),
-                        imageResource = R.drawable.photo_emma
+                        imageResource = R.drawable.photo_emma_new
                     )
                 )
             ),
@@ -63,10 +63,32 @@ object EmployeeData {
                         role = Role.AndroidDeveloper,
                         notes = "❤️ Commodore C64 / Amiga",
                         startDate = LocalDate.parse("2017-02-27"),
-                        imageResource = R.drawable.photo_robert
+                        imageResource = R.drawable.photo_robert_new
+                    )
+                )
+            ),
+
+            Team(
+                name = "Bontouch",
+                imageResource = null,
+                employees = listOf(
+                    Employee(
+                        name = "Nina Dizdarevic",
+                        role = Role.EventCommunicationsManager,
+                        notes = "Loves events!",
+                        startDate = LocalDate.parse("2021-11-29"),
+                        imageResource = R.drawable.photo_nina_new
+                    ),
+                    Employee(
+                        name = "Henrik Björkman",
+                        role = Role.SocialMediaManager,
+                        notes = "Great photographer!",
+                        startDate = LocalDate.parse("2022-01-17"),
+                        imageResource = R.drawable.photo_henrik_new
                     )
                 )
             )
+
         )
     )
 }

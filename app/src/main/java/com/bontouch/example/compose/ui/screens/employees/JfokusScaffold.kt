@@ -27,10 +27,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bontouch.example.compose.R
 import com.bontouch.example.compose.config.SettingsRepository
 import com.bontouch.example.compose.ui.theme.MainTheme
+
+@ExperimentalAnimationApi
+@Preview
+@Composable
+fun JfokusScaffoldPreview() {
+    JfokusScaffold(
+        isShowingEmployeeDetail = false,
+        onBackPressed = {},
+        content = @Composable {
+            Text("Empty content")
+        }
+    )
+}
 
 @ExperimentalAnimationApi
 @Composable
@@ -62,6 +76,20 @@ fun JfokusScaffold(
 }
 
 @ExperimentalAnimationApi
+@Preview
+@Composable
+fun JfokusToolbarMainPreview() {
+    JfokusToolbar(isShowingEmployeeDetails = false, onBackPressed = {})
+}
+
+@ExperimentalAnimationApi
+@Preview
+@Composable
+fun JfokusToolbarEmployeeDetailsPreview() {
+    JfokusToolbar(isShowingEmployeeDetails = true, onBackPressed = {})
+}
+
+@ExperimentalAnimationApi
 @Composable
 fun JfokusToolbar(
     isShowingEmployeeDetails: Boolean,
@@ -86,7 +114,7 @@ fun JfokusToolbar(
 
 @Composable
 fun EmployeeDetailsTitleWithBackButton(
-    onBackPressed: () -> Unit
+    onBackPressed: () -> Unit = {}
 ) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         IconButton(onClick = {
@@ -108,6 +136,7 @@ fun EmployeeDetailsTitleWithBackButton(
     }
 }
 
+@Preview
 @Composable
 fun MainTitle() {
     Box(
@@ -118,11 +147,12 @@ fun MainTitle() {
             modifier = Modifier
                 .padding(start = 16.dp),
             style = MaterialTheme.typography.h6,
-            text = "Jfokus Booth Team"
+            text = "Jfokus Team"
         )
     }
 }
 
+@Preview
 @Composable
 fun BontouchLogo() {
     Image(

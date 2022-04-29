@@ -9,14 +9,9 @@ import com.bontouch.example.compose.domain.Role
 import com.bontouch.example.compose.repository.EmployeeRepository
 import com.bontouch.example.compose.ui.util.update
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.flow
-import org.threeten.bp.LocalDate
-import org.threeten.bp.LocalDateTime
-import org.threeten.bp.temporal.ChronoUnit
 
 @ExperimentalCoroutinesApi
 class EmployeesViewModel : ViewModel() {
@@ -24,24 +19,15 @@ class EmployeesViewModel : ViewModel() {
     private val employeeViewCoordinatesByIndex = HashMap<Int, LayoutCoordinates>()
     private val employeeAnimationStateFlow = MutableStateFlow(EmployeeDetailsAnimationState())
 
-    private val timerFlow: Flow<Int> = flow {
-        var counter = 0
-        while (true) {
-            emit(counter)
-            delay(1000)
-        }
-    }
-
-    val employeeAnimationFlow
+    val employeeDetailsAnimationFlow
         get(): Flow<EmployeeDetailsAnimationState> = employeeAnimationStateFlow
 
     val listItemsFlow: Flow<List<ListItem>>
         get() = combine(
             EmployeeRepository.teamsFlow,
-            SettingsRepository.manyItemsFlow,
-            timerFlow
+            SettingsRepository.manyItemsFlow
         )
-        { teams, manyItems, timer ->
+        { teams, manyItems ->
 
             val listItems = ArrayList<ListItem>()
 
@@ -57,7 +43,7 @@ class EmployeesViewModel : ViewModel() {
                     listItems.add(
                         ListItem.Team(
                             name = team.name,
-                            imageResource = team.imageResource
+                            logoResource = team.imageResource
                         )
                     )
 
@@ -68,8 +54,8 @@ class EmployeesViewModel : ViewModel() {
                                 name = employee.name,
                                 role = employee.role.forDisplay(),
                                 notes = employee.notes,
-                                employedSeconds = employee.startDate.secondsSince(),
-                                imageResource = employee.imageResource
+                                employmentDate = employee.startDate,
+                                photoResource = employee.imageResource
                             )
                         )
                     }
@@ -126,10 +112,10 @@ private fun Role.forDisplay() =
         Role.IosDeveloper -> "iOS Developer"
         Role.WebDeveloper -> "Web Developer"
         Role.BackEndDeveloper -> "Back-end Developer"
+        Role.EventCommunicationsManager -> "Event & Communications Manager"
+        Role.SocialMediaManager -> "Social Media Manager"
     }
 
-private fun LocalDate.secondsSince() =
-    ChronoUnit.SECONDS.between(this.atStartOfDay(), LocalDateTime.now())
 
 
 

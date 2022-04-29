@@ -9,7 +9,7 @@ data class Teams(
 
 data class Team(
     val name: String,
-    @DrawableRes val imageResource: Int,
+    @DrawableRes val imageResource: Int?,
     val employees: List<Employee>
 )
 
@@ -25,5 +25,7 @@ enum class Role {
     AndroidDeveloper,
     IosDeveloper,
     WebDeveloper,
-    BackEndDeveloper
+    BackEndDeveloper,
+    EventCommunicationsManager,
+    SocialMediaManager
 }

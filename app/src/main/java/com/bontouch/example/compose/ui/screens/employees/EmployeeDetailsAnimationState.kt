@@ -19,7 +19,7 @@ data class EmployeeDetailsAnimationState(
     val isExpanded
         get() = state == State.Expanded
 
-    val isInOrApproachingFullScreen
+    val isInOrApproachingDetailsView
         get() = state == State.Expanding || state == State.Expanded
 
     fun startExpansion(

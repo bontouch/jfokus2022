@@ -15,8 +15,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.bontouch.example.compose.R
 import com.bontouch.example.compose.config.SettingsRepository
+
+@Preview
+@Composable
+fun JfokusLogoViewPreview() {
+    JfokusLogoView()
+}
 
 @Composable
 fun JfokusLogoView() {

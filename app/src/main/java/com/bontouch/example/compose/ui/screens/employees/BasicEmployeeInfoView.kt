@@ -2,22 +2,15 @@ package com.bontouch.example.compose.ui.screens.employees
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.LayoutCoordinates
-import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -27,33 +20,45 @@ import org.threeten.bp.temporal.ChronoUnit
 
 @Preview
 @Composable
-fun EmployeeViewPreview() {
-    EmployeeView(
+fun BasicEmployeeInfoViewPreview() {
+    BasicEmployeeInfoView(
         name = "Robert Söderbjörn",
         role = "Android Developer",
         photoResource = R.drawable.photo_robert_new,
-        employmentDate = LocalDate.parse("2017-02-27"),
-        onClicked = {},
-        onPositioned = {}
+        employmentDate = LocalDate.parse("2017-02-27")
     )
 }
 
 @Composable
-fun EmployeeView(
+fun BasicEmployeeInfoView(
     name: String,
     role: String,
     @DrawableRes photoResource: Int,
     employmentDate: LocalDate,
-    onClicked: () -> Unit,
-    onPositioned: (LayoutCoordinates) -> Unit
 ) {
-    RoundedCard(modifier = Modifier
-        .padding(start = 16.dp, end = 16.dp, top = 4.dp)
-        .onGloballyPositioned { onPositioned(it) }
-        .clickable {
-            onClicked()
+    Row {
+        Column(modifier = Modifier.align(Alignment.CenterVertically)) {
+            ProfilePhoto(
+                modifier = Modifier
+                    .padding(start = 8.dp, end = 8.dp),
+                photoResource = photoResource)
         }
-    ) {
-        BasicEmployeeInfoView(name, role, photoResource, employmentDate)
+        Column {
+            Text(
+                style = MaterialTheme.typography.h5,
+                text = name
+            )
+            Text(
+                style = MaterialTheme.typography.body1,
+                text = role
+            )
+            ElapsedTimeView(employmentDate.atStartOfDay(), ChronoUnit.SECONDS) {
+                Text(
+                    style = MaterialTheme.typography.caption,
+                    text = "Employed for ${it} seconds"
+                )
+            }
+        }
     }
 }
+

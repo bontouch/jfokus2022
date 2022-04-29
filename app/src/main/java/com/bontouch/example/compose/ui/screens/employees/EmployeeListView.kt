@@ -3,6 +3,7 @@ package com.bontouch.example.compose.ui.screens.employees
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
@@ -10,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.unit.dp
 import com.bontouch.example.compose.ui.theme.BontouchLightBlue
 
 @Composable
@@ -25,17 +27,21 @@ fun EmployeesListView(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .onGloballyPositioned { onListViewPositioned(it) }
             .background(BontouchLightBlue)
+            .onGloballyPositioned { onListViewPositioned(it) }
+            .padding(bottom = 16.dp)
             .animateContentSize()
     ) {
 
         itemsIndexed(items = items) { itemIndex, item ->
             when (item) {
                 is ListItem.JfokusLogo -> JfokusLogoView()
-                is ListItem.Team -> TeamView(item)
+                is ListItem.Team -> TeamView(item.name, item.logoResource)
                 is ListItem.Employee -> EmployeeView(
-                    employeeItem = item,
+                    name = item.name,
+                    role = item.role,
+                    photoResource = item.photoResource,
+                    item.employmentDate,
                     onClicked = {
                         onEmployeeViewClicked(itemIndex)
                     },
