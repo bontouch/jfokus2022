@@ -1,5 +1,6 @@
 package com.bontouch.example.compose.repository
 
+import com.bontouch.example.compose.config.SettingsRepository
 import com.bontouch.example.compose.data.EmployeeData
 import com.bontouch.example.compose.domain.Teams
 import com.bontouch.example.compose.ui.util.update
@@ -7,7 +8,13 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 
 object EmployeeRepository {
-    private val teamsStateFlow = MutableStateFlow<Teams>(EmployeeData.TEAMS)
+    private val teamsStateFlow = MutableStateFlow<Teams>(
+        if (SettingsRepository.SUMMARY_WITH_DEVS_ONLY) {
+            EmployeeData.developers
+        } else {
+            EmployeeData.everyone
+        }
+    )
 
     val teamsFlow: Flow<Teams>
         get() = teamsStateFlow

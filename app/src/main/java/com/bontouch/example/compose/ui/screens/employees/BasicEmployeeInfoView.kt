@@ -34,7 +34,7 @@ fun BasicEmployeeInfoView(
     name: String,
     role: String,
     @DrawableRes photoResource: Int,
-    employmentDate: LocalDate,
+    employmentDate: LocalDate?,
 ) {
     Row {
         Column(modifier = Modifier.align(Alignment.CenterVertically)) {
@@ -52,11 +52,13 @@ fun BasicEmployeeInfoView(
                 style = MaterialTheme.typography.body1,
                 text = role
             )
-            ElapsedTimeView(employmentDate.atStartOfDay(), ChronoUnit.SECONDS) {
-                Text(
-                    style = MaterialTheme.typography.caption,
-                    text = "Employed for ${it} seconds"
-                )
+            employmentDate?.let { date ->
+                ElapsedTimeView(date.atStartOfDay(), ChronoUnit.SECONDS) {
+                    Text(
+                        style = MaterialTheme.typography.caption,
+                        text = "Employed for ${it} seconds"
+                    )
+                }
             }
         }
     }

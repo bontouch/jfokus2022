@@ -44,7 +44,7 @@ fun EmployeeDetailsView(
     name: String,
     role: String,
     @DrawableRes photoResource: Int,
-    employmentDate: LocalDate,
+    employmentDate: LocalDate?,
     notes: String,
     onNotesTyped: (String) -> Unit
 ) {

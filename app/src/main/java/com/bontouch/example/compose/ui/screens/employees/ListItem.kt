@@ -15,7 +15,7 @@ sealed interface ListItem {
     data class Employee(
         val name: String,
         val role: String,
-        val employmentDate: LocalDate,
+        val employmentDate: LocalDate?,
         @DrawableRes val photoResource: Int,
         val notes: String,
     ): ListItem

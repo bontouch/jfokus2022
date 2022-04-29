@@ -9,86 +9,111 @@ import org.threeten.bp.LocalDate
 
 object EmployeeData {
 
-    val TEAMS = Teams(
-        listOf(
+    private val camille = Employee(
+        name = "Camille Bossoutrot",
+        role = Role.AndroidDeveloper,
+        notes = "Likes Kotlin",
+        startDate = LocalDate.parse("2017-10-30"),
+        imageResource = R.drawable.photo_camille
+    )
 
+    private val emma = Employee(
+        name = "Emma Olsson",
+        role = Role.IosDeveloper,
+        notes = "Likes Swift",
+        startDate = LocalDate.parse("2021-01-18"),
+        imageResource = R.drawable.photo_emma_new
+    )
+
+    private val jonas = Employee(
+        name = "Jonas Hansson",
+        role = Role.AndroidDeveloper,
+        notes = "Likes Kotlin",
+        startDate = LocalDate.parse("2018-08-20"),
+        imageResource = R.drawable.photo_jonas
+    )
+
+    private val adam = Employee(
+        name = "Adam Morén",
+        role = Role.WebDeveloper,
+        notes = "Likes JavaScript",
+        startDate = LocalDate.parse("2021-08-09"),
+        imageResource = R.drawable.photo_adam
+    )
+
+    private val robert = Employee(
+        name = "Robert Söderbjörn",
+        role = Role.AndroidDeveloper,
+        notes = "❤️ Commodore C64 / Amiga",
+        startDate = LocalDate.parse("2017-02-27"),
+        imageResource = R.drawable.photo_robert_new
+    )
+
+    private val nina = Employee(
+        name = "Nina Dizdarevic",
+        role = Role.EventCommunicationsManager,
+        notes = "Loves events!",
+        startDate = LocalDate.parse("2021-11-29"),
+        imageResource = R.drawable.photo_nina_new
+    )
+
+    private val henrik = Employee(
+        name = "Henrik Björkman",
+        role = Role.SocialMediaManager,
+        notes = "Great photographer!",
+        startDate = LocalDate.parse("2022-01-17"),
+        imageResource = R.drawable.photo_henrik_new
+    )
+
+    val everyone = Teams(
+        listOf(
             Team(
                 name = "Systembolaget",
-                imageResource = R.drawable.logo_systembolaget,
+                logoResource = R.drawable.logo_systembolaget,
                 employees = listOf(
-                    Employee(
-                        name = "Camille Bossoutrot",
-                        role = Role.AndroidDeveloper,
-                        notes = "Likes Kotlin",
-                        startDate = LocalDate.parse("2017-10-30"),
-                        imageResource = R.drawable.photo_camille
-                    ),
-                    Employee(
-                        name = "Emma Olsson",
-                        role = Role.IosDeveloper,
-                        notes = "Likes Swift",
-                        startDate = LocalDate.parse("2021-01-18"),
-                        imageResource = R.drawable.photo_emma_new
-                    )
+                    camille,
+                    emma
                 )
             ),
-
             Team(
                 name = "Swish",
-                imageResource = R.drawable.logo_swish,
+                logoResource = R.drawable.logo_swish,
                 employees = listOf(
-                    Employee(
-                        name = "Jonas Hansson",
-                        role = Role.AndroidDeveloper,
-                        notes = "Likes Kotlin",
-                        startDate = LocalDate.parse("2018-08-20"),
-                        imageResource = R.drawable.photo_jonas
-                    ),
-                    Employee(
-                        name = "Adam Morén",
-                        role = Role.WebDeveloper,
-                        notes = "Likes JavaScript",
-                        startDate = LocalDate.parse("2021-08-09"),
-                        imageResource = R.drawable.photo_adam
-                    )
+                    jonas,
+                    adam
                 )
             ),
-
             Team(
                 name = "PostNord",
-                imageResource = R.drawable.logo_postnord,
+                logoResource = R.drawable.logo_postnord,
                 employees = listOf(
-                    Employee(
-                        name = "Robert Söderbjörn",
-                        role = Role.AndroidDeveloper,
-                        notes = "❤️ Commodore C64 / Amiga",
-                        startDate = LocalDate.parse("2017-02-27"),
-                        imageResource = R.drawable.photo_robert_new
-                    )
+                    robert
                 )
             ),
-
             Team(
-                name = "Bontouch",
-                imageResource = null,
+                name = "People & Talent",
+                logoResource = null,
                 employees = listOf(
-                    Employee(
-                        name = "Nina Dizdarevic",
-                        role = Role.EventCommunicationsManager,
-                        notes = "Loves events!",
-                        startDate = LocalDate.parse("2021-11-29"),
-                        imageResource = R.drawable.photo_nina_new
-                    ),
-                    Employee(
-                        name = "Henrik Björkman",
-                        role = Role.SocialMediaManager,
-                        notes = "Great photographer!",
-                        startDate = LocalDate.parse("2022-01-17"),
-                        imageResource = R.drawable.photo_henrik_new
-                    )
+                    nina,
+                    henrik
                 )
             )
+        )
+    )
 
+    val developers = Teams(
+        listOf(
+            Team(
+                name = "Developers",
+                logoResource = null,
+                employees = listOf(
+                    robert,
+                    camille,
+                    jonas,
+                    emma,
+                    adam
+                )
+            )
         )
     )
 }

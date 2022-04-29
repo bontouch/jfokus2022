@@ -43,12 +43,12 @@ fun EmployeeView(
     name: String,
     role: String,
     @DrawableRes photoResource: Int,
-    employmentDate: LocalDate,
+    employmentDate: LocalDate?,
     onClicked: () -> Unit,
     onPositioned: (LayoutCoordinates) -> Unit
 ) {
     RoundedCard(modifier = Modifier
-        .padding(start = 16.dp, end = 16.dp, top = 4.dp)
+        .padding(start = 16.dp, end = 16.dp, top = 4.dp, bottom = 4.dp)
         .onGloballyPositioned { onPositioned(it) }
         .clickable {
             onClicked()

@@ -43,7 +43,7 @@ class EmployeesViewModel : ViewModel() {
                     listItems.add(
                         ListItem.Team(
                             name = team.name,
-                            logoResource = team.imageResource
+                            logoResource = team.logoResource
                         )
                     )
 
@@ -54,7 +54,11 @@ class EmployeesViewModel : ViewModel() {
                                 name = employee.name,
                                 role = employee.role.forDisplay(),
                                 notes = employee.notes,
-                                employmentDate = employee.startDate,
+                                employmentDate = if (SettingsRepository.SUMMARY_WITH_DEVS_ONLY) {
+                                    null
+                                } else {
+                                    employee.startDate
+                                },
                                 photoResource = employee.imageResource
                             )
                         )
