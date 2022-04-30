@@ -28,8 +28,9 @@ fun BasicEmployeeInfoViewPreview() {
     BasicEmployeeInfoView(
         name = "Robert Söderbjörn",
         role = "Android Developer",
-        photoResource = R.drawable.photo_robert_new,
-        employmentDate = LocalDate.parse("2017-02-27")
+        photoResource = R.drawable.photo_robert,
+        employmentDate = LocalDate.parse("2017-02-27"),
+        false
     )
 }
 

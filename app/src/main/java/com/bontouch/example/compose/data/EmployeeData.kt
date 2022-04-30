@@ -22,7 +22,7 @@ object EmployeeData {
         role = Role.IosDeveloper,
         notes = "Likes Swift",
         startDate = LocalDate.parse("2021-01-18"),
-        imageResource = R.drawable.photo_emma_new
+        imageResource = R.drawable.photo_emma
     )
 
     private val jonas = Employee(
@@ -46,7 +46,7 @@ object EmployeeData {
         role = Role.AndroidDeveloper,
         notes = "❤️ Commodore C64 / Amiga",
         startDate = LocalDate.parse("2017-02-27"),
-        imageResource = R.drawable.photo_robert_new
+        imageResource = R.drawable.photo_robert
     )
 
     private val nina = Employee(
@@ -54,7 +54,7 @@ object EmployeeData {
         role = Role.EventCommunicationsManager,
         notes = "Loves events!",
         startDate = LocalDate.parse("2021-11-29"),
-        imageResource = R.drawable.photo_nina_new
+        imageResource = R.drawable.photo_nina
     )
 
     private val henrik = Employee(
@@ -62,7 +62,7 @@ object EmployeeData {
         role = Role.SocialMediaManager,
         notes = "Great photographer!",
         startDate = LocalDate.parse("2022-01-17"),
-        imageResource = R.drawable.photo_henrik_new
+        imageResource = R.drawable.photo_henrik
     )
 
     val everyone = Teams(
