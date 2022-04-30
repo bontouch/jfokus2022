@@ -15,7 +15,7 @@ import com.bontouch.example.compose.R
 @Preview
 @Composable
 fun ProfilePhotoPreview() {
-    ProfilePhoto(R.drawable.photo_robert_new)
+    ProfilePhoto(R.drawable.photo_robert)
 }
 
 @Composable

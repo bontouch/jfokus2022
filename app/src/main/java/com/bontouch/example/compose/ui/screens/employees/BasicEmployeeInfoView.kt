@@ -30,7 +30,6 @@ fun BasicEmployeeInfoViewPreview() {
         role = "Android Developer",
         photoResource = R.drawable.photo_robert,
         employmentDate = LocalDate.parse("2017-02-27"),
-        false
     )
 }
 
