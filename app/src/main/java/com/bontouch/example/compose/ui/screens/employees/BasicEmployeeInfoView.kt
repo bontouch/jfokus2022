@@ -11,16 +11,20 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bontouch.example.compose.R
+import com.jakewharton.threetenabp.AndroidThreeTen
 import org.threeten.bp.LocalDate
 import org.threeten.bp.temporal.ChronoUnit
 
 @Preview
 @Composable
 fun BasicEmployeeInfoViewPreview() {
+    AndroidThreeTen.init(LocalContext.current) // initialize Java time Android back-port
+
     BasicEmployeeInfoView(
         name = "Robert Söderbjörn",
         role = "Android Developer",
@@ -37,10 +41,10 @@ fun BasicEmployeeInfoView(
     employmentDate: LocalDate?,
 ) {
     Row {
-        Column(modifier = Modifier.align(Alignment.CenterVertically)) {
+        Column {
             ProfilePhoto(
                 modifier = Modifier
-                    .padding(start = 8.dp, end = 8.dp),
+                    .padding(start = 8.dp, end = 8.dp, top = 4.dp),
                 photoResource = photoResource)
         }
         Column {

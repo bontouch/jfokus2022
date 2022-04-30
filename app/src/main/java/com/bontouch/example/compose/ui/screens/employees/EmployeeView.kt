@@ -48,7 +48,7 @@ fun EmployeeView(
     onPositioned: (LayoutCoordinates) -> Unit
 ) {
     RoundedCard(modifier = Modifier
-        .padding(start = 16.dp, end = 16.dp, top = 4.dp, bottom = 4.dp)
+        .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)
         .onGloballyPositioned { onPositioned(it) }
         .clickable {
             onClicked()

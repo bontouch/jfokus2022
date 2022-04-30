@@ -8,7 +8,7 @@ data class Teams(
 )
 
 data class Team(
-    val name: String,
+    val name: String?,
     @DrawableRes val logoResource: Int?,
     val employees: List<Employee>
 )

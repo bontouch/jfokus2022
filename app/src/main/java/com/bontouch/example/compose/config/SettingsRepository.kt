@@ -4,7 +4,7 @@ import com.bontouch.example.compose.ui.util.update
 import kotlinx.coroutines.flow.MutableStateFlow
 
 object SettingsRepository {
-    const val SUMMARY_WITH_DEVS_ONLY = false
+    const val OMIT_TEAMS_AND_EMPLOYMENT_DURATION = false
 
     private const val ANIMATION_TIME_MILLIS_FAST = 300
     private const val ANIMATION_TIME_MILLIS_SLOW = 7000

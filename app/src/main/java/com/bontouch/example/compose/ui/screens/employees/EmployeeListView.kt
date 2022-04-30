@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.dp
-import com.bontouch.example.compose.ui.theme.BontouchLightBlue
+import com.bontouch.example.compose.ui.theme.BontouchBlue
 
 @Composable
 fun EmployeesListView(
@@ -27,7 +27,7 @@ fun EmployeesListView(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(BontouchLightBlue)
+            .background(BontouchBlue)
             .onGloballyPositioned { onListViewPositioned(it) }
             .padding(bottom = 16.dp)
             .animateContentSize()

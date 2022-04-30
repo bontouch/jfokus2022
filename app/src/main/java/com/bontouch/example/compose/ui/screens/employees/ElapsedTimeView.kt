@@ -7,7 +7,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import com.jakewharton.threetenabp.AndroidThreeTen
 import kotlinx.coroutines.delay
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
@@ -17,6 +19,8 @@ import org.threeten.bp.temporal.Temporal
 @Preview
 @Composable
 fun ElapsedTimeViewPreview() {
+    AndroidThreeTen.init(LocalContext.current) // initialize Java time Android back-port
+
     ElapsedTimeView(
         startTime = LocalDate.parse("2020-01-01").atStartOfDay(),
         unit = ChronoUnit.SECONDS

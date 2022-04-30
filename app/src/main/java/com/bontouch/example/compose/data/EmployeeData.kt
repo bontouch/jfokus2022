@@ -104,14 +104,16 @@ object EmployeeData {
     val developers = Teams(
         listOf(
             Team(
-                name = "Developers",
+                name = null,
                 logoResource = null,
                 employees = listOf(
                     robert,
                     camille,
                     jonas,
                     emma,
-                    adam
+                    adam,
+                    nina,
+                    henrik
                 )
             )
         )

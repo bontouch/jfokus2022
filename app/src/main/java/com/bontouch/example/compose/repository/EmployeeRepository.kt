@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 object EmployeeRepository {
     private val teamsStateFlow = MutableStateFlow<Teams>(
-        if (SettingsRepository.SUMMARY_WITH_DEVS_ONLY) {
+        if (SettingsRepository.OMIT_TEAMS_AND_EMPLOYMENT_DURATION) {
             EmployeeData.developers
         } else {
             EmployeeData.everyone

@@ -40,12 +40,14 @@ class EmployeesViewModel : ViewModel() {
             for (i in 1..duplicates) {
                 teams.teams.forEach { team ->
 
-                    listItems.add(
-                        ListItem.Team(
-                            name = team.name,
-                            logoResource = team.logoResource
+                    team.name?.let { name ->
+                        listItems.add(
+                            ListItem.Team(
+                                name = name,
+                                logoResource = team.logoResource
+                            )
                         )
-                    )
+                    }
 
                     team.employees.forEach { employee ->
 
@@ -54,7 +56,7 @@ class EmployeesViewModel : ViewModel() {
                                 name = employee.name,
                                 role = employee.role.forDisplay(),
                                 notes = employee.notes,
-                                employmentDate = if (SettingsRepository.SUMMARY_WITH_DEVS_ONLY) {
+                                employmentDate = if (SettingsRepository.OMIT_TEAMS_AND_EMPLOYMENT_DURATION) {
                                     null
                                 } else {
                                     employee.startDate
