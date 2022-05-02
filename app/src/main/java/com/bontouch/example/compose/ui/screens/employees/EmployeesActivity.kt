@@ -25,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.bontouch.example.compose.R
@@ -38,6 +39,7 @@ class EmployeesActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            window?.statusBarColor = Color.Black.toArgb()
             EmployeesScreen(viewModel = viewModel)
         }
     }
@@ -70,7 +72,7 @@ class EmployeesActivity : ComponentActivity() {
         ) {
             Button(
                 colors = ButtonDefaults.buttonColors(
-                    backgroundColor = BontouchBlue
+                    backgroundColor = Color.Black
                 ),
                 onClick = { /* ... */ }
             ) {
@@ -97,7 +99,7 @@ class EmployeesActivity : ComponentActivity() {
                     JfokusHello(
                         index = i,
                         modifier = Modifier
-                            .background(BontouchBlue)
+                            .background(Color.Black)
                             .padding(start = 16.dp, end = 16.dp)
                     )
                 }

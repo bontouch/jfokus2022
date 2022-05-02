@@ -91,7 +91,7 @@ object EmployeeData {
                 )
             ),
             Team(
-                name = "People & Talent",
+                name = "Booth Support",
                 logoResource = null,
                 employees = listOf(
                     nina,

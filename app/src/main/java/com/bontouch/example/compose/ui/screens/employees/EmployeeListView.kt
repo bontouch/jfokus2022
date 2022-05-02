@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.dp
@@ -27,7 +28,7 @@ fun EmployeesListView(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(BontouchBlue)
+            .background(Color.Black)
             .onGloballyPositioned { onListViewPositioned(it) }
             .padding(bottom = 16.dp)
             .animateContentSize()
