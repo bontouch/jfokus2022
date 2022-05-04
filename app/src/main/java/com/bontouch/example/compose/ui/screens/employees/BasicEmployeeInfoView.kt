@@ -11,6 +11,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,26 +40,36 @@ fun BasicEmployeeInfoView(
     role: String,
     @DrawableRes photoResource: Int,
     employmentDate: LocalDate?,
+    modifier: Modifier = Modifier
 ) {
-    Row {
-        Column {
+    Row(modifier = modifier) {
+        Column(
+            modifier = Modifier
+                .align(Alignment.CenterVertically)
+                .padding(end = 16.dp)
+        ) {
             ProfilePhoto(
-                modifier = Modifier
-                    .padding(start = 8.dp, end = 8.dp, top = 4.dp),
                 photoResource = photoResource)
         }
-        Column {
+        Column(
+            modifier = Modifier
+                .align(Alignment.CenterVertically)
+        ) {
             Text(
+                color = Color.White,
+                modifier = Modifier.padding(bottom = 4.dp),
                 style = MaterialTheme.typography.h5,
                 text = name
             )
             Text(
+                color = Color.White,
                 style = MaterialTheme.typography.body1,
                 text = role
             )
             employmentDate?.let { date ->
                 ElapsedTimeView(date.atStartOfDay(), ChronoUnit.SECONDS) {
                     Text(
+                        color = Color.White,
                         style = MaterialTheme.typography.caption,
                         text = "Employed for ${it} seconds"
                     )

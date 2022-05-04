@@ -22,6 +22,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bontouch.example.compose.R
+import com.bontouch.example.compose.ui.theme.BontouchBlue
+import com.bontouch.example.compose.ui.theme.CardBackground
 import com.jakewharton.threetenabp.AndroidThreeTen
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
@@ -55,7 +57,7 @@ fun EmployeeDetailsView(
     val detailsOpenedSince by remember { mutableStateOf(LocalDateTime.now()) }
 
     RoundedCard(modifier = modifier) {
-        Column {
+        Column(modifier = Modifier.padding(16.dp)) {
             BasicEmployeeInfoView(name, role, photoResource, employmentDate)
             TextField(
                 modifier = Modifier
@@ -67,11 +69,16 @@ fun EmployeeDetailsView(
                     onNotesTyped(it)
                 },
                 colors = TextFieldDefaults.textFieldColors(
-                    backgroundColor = Color(0xFFFFFFFF)
+                    backgroundColor = CardBackground,
+                    textColor = Color.White,
+                    cursorColor = BontouchBlue,
+                    focusedLabelColor = Color.White,
+                    unfocusedLabelColor = Color.White
                 )
             )
             ElapsedTimeView(startTime = detailsOpenedSince, unit = ChronoUnit.SECONDS) { seconds ->
                 Text(
+                    color = Color.White,
                     modifier = Modifier.padding(8.dp),
                     style = MaterialTheme.typography.body2,
                     text = "Employee details viewed for $seconds seconds"

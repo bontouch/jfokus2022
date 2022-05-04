@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.bontouch.example.compose.ui.theme.CardBackground
 
 @Preview
 @Composable
@@ -27,14 +28,11 @@ fun RoundedCardPreview() {
 @Composable
 fun RoundedCard(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
     Column(modifier = modifier.fillMaxWidth()) {
-        Card(
+        Card(backgroundColor = CardBackground,
+            shape = RoundedCornerShape(8.dp),
             elevation = 4.dp,
             modifier = Modifier
                 .fillMaxSize()
-                .background(
-                    color = Color.White,
-                    shape = RoundedCornerShape(8.dp)
-                )
                 .fillMaxWidth()
         ) {
             content()

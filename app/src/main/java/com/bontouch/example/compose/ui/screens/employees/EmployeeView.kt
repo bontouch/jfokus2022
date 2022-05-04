@@ -40,6 +40,7 @@ fun EmployeeViewPreview() {
 
 @Composable
 fun EmployeeView(
+    modifier: Modifier = Modifier,
     name: String,
     role: String,
     @DrawableRes photoResource: Int,
@@ -47,13 +48,18 @@ fun EmployeeView(
     onClicked: () -> Unit,
     onPositioned: (LayoutCoordinates) -> Unit
 ) {
-    RoundedCard(modifier = Modifier
-        .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)
+    RoundedCard(modifier = modifier
         .onGloballyPositioned { onPositioned(it) }
         .clickable {
             onClicked()
         }
     ) {
-        BasicEmployeeInfoView(name, role, photoResource, employmentDate)
+        BasicEmployeeInfoView(
+            modifier = Modifier.padding(16.dp),
+            name = name,
+            role = role,
+            photoResource = photoResource,
+            employmentDate = employmentDate
+        )
     }
 }
