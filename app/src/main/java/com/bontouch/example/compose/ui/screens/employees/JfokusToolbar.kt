@@ -71,7 +71,7 @@ fun MainTitle() {
             modifier = Modifier
                 .padding(start = 16.dp),
             style = MaterialTheme.typography.h6,
-            text = "Jfokus Booth Team"
+            text = "Jfokus Attendees"
         )
     }
 }
